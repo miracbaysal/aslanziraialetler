@@ -112,8 +112,8 @@
 							<i class="fas fa-shipping-fast"></i>
 						</div>
 						<div class="content">
-							<h3>Kargo</h3>
-							<p>Türkiye'nin her yerine kargo seçeneği</p>
+							<h3>Nakliye</h3>
+							<p>Türkiye'nin her yerine nakliye konusunda yardım.</p>
 						</div>
 					</div>
 				</div>

@@ -29,8 +29,15 @@
 								<li><a href="{{ route('products') }}">Ürünlerimiz</a></li>
 								<li><a href="{{ route('contact') }}">İletişim</a></li>
 								<li>
-									<div class="header-icons">
-										<a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
+									<div class="row">
+										<div class=" text-center col-md-12">
+											<div class="social-icons">
+												<ul>
+													<li><a href="https://www.facebook.com/aslanziraialetler/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+													<li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+												</ul>
+											</div>
+										</div>
 									</div>
 								</li>
 							</ul>
