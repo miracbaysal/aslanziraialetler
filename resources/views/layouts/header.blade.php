@@ -1,4 +1,18 @@
+<style>
+	html, body {
+    margin: 0;
+    padding: 0;
+}
 
+.top-header-area {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+.topbar {
+    margin-top: 0 !important;
+}
+</style>
     <!--PreLoader-->
     <div class="loader">
         <div class="loader-inner">
@@ -9,10 +23,28 @@
 	
 	<!-- header -->
 	<div class="top-header-area" id="sticker">
+		<div class="topbar">
+			<div class="container">
+				<div class="row align-items-center justify-content-between">
+					<!-- Sol: Sosyal Medya -->
+					<div class="col-md-6 col-12 text-md-left text-center">
+						<div class="social-icons">
+							<a href="https://www.facebook.com/aslanziraialetler/" target="_blank" style="color:#333; margin-right:10px;"><i class="fab fa-facebook-f"></i></a>
+							<a href="#" target="_blank" style="color:#333;"><i class="fab fa-instagram"></i></a>
+						</div>
+					</div>
+					<!-- Sağ: Telefon -->
+					<div class="col-md-6 col-12 text-md-right text-center">
+						<span class="contact-info font-weight-bold">Bize Ulaşın: {{$comm->phone}}</span>
+					</div>
+				</div>
+			</div>
+		</div>
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 col-sm-12 text-center">
-					<div class="main-menu-wrap">
+					<div class="main-menu-wrap pt-3">
+						
 						<!-- logo -->
 						<div class="site-logo">
 							<a href="{{ route('anasayfa') }}">
@@ -25,24 +57,12 @@
 						<nav class="main-menu">
 							<ul>
 								<li><a href="{{ route('anasayfa') }}">Anasayfa</a></li>
-								<li><a href="{{ route('about') }}">Hakkımızda</a></li>
 								<li><a href="{{ route('products') }}">Ürünlerimiz</a></li>
+								<li><a href="{{ route('about') }}">Hakkımızda</a></li>
 								<li><a href="{{ route('contact') }}">İletişim</a></li>
-								<li>
-									<div class="row">
-										<div class=" text-center col-md-12">
-											<div class="social-icons">
-												<ul>
-													<li><a href="https://www.facebook.com/aslanziraialetler/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-													<li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
-												</ul>
-											</div>
-										</div>
-									</div>
-								</li>
+								<li></li>
 							</ul>
 						</nav>
-						<a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a>
 						<div class="mobile-menu"></div>
 						<!-- menu end -->
 					</div>
@@ -51,22 +71,5 @@
 		</div>
 	</div>
 	<!-- end header -->
-	 <!-- search area -->
-	<div class="search-area">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<span class="close-btn"><i class="fas fa-window-close"></i></span>
-					<div class="search-bar">
-						<div class="search-bar-tablecell">
-							<h3>Search For:</h3>
-							<input type="text" placeholder="Keywords">
-							<button type="submit">Search <i class="fas fa-search"></i></button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- end search arewa -->
+
 	

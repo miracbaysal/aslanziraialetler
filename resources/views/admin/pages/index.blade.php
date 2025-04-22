@@ -26,6 +26,9 @@
                             <tr class="click" data-href="{{route('admin.iletisim')}}">
                                 <td class="section-name" style="width: 70%;">İLETİŞİM</td>
                             </tr>
+                            <tr class="click" data-href="{{route('admin.mesajlar')}}">
+                                <td class="section-name" style="width: 70%;">MESAJLAR</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>

@@ -17,7 +17,7 @@
 						<ul>
 							<li>{{$comm->address}}</li>
 							<li>{{$comm->email}}</li>
-							<li>{{$comm->phone}}</li>
+							<li><a href="tel:{{$comm->phone}}">{{$comm->phone}}</a></li>
 						</ul>
 					</div>
 				</div>

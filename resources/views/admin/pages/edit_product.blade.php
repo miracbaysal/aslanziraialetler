@@ -88,7 +88,7 @@
                     @if ($product->productImage)
                     <div class="mb-2">
                       <strong>Mevcut Fotoğraf:</strong><br>
-                      <img src="{{ asset('dist/img/' . $product->productImage) }}" alt="Mevcut Fotoğraf" height="100">
+                      <img src="{{ asset('dist/img/products/' . $product->productImage) }}" alt="Mevcut Fotoğraf" height="100">
                     </div>
                   @endif
                   <input type="hidden" name="oldImage" value="{{ $product->productImage }}">

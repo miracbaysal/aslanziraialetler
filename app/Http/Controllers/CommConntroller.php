@@ -48,7 +48,7 @@ class CommConntroller extends Controller
         $comm->phone = $request->phone;
         $comm->workingHours = $request->workingHours;
         $comm->save();
-        return redirect()->route('admin')->with('success', 'İLetişim Bilgileri Başarıyle Eklendi.');
+        return redirect()->route('admin.iletisim')->with('success', 'İLetişim Bilgileri Başarıyle Eklendi.');
     }
 
     /**
@@ -56,7 +56,7 @@ class CommConntroller extends Controller
      */
     public function show(Communication $comm)
     {
-        $comm = Communication::all();
+        $comm = Communication::first();
         return view('pages.contact', compact('comm'));
     }
 
@@ -94,7 +94,7 @@ class CommConntroller extends Controller
         $comm->save();
 
 
-        return redirect()->route('admin')->with('success', 'İletişim başarıyla güncellendi.');
+        return redirect()->route('admin.iletisim')->with('success', 'İletişim başarıyla güncellendi.');
     }
 
     /**
@@ -104,6 +104,6 @@ class CommConntroller extends Controller
     {
         $comm = Communication::find($id);
         $comm->delete();
-        return redirect()->route('admin')->with('success', 'İletişim başarıyla silindi.');
+        return redirect()->route('admin.iletisim')->with('success', 'İletişim başarıyla silindi.');
     }
 }

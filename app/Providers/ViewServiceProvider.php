@@ -25,7 +25,7 @@ class ViewServiceProvider extends ServiceProvider
     {
         // Eğer birden fazla view dosyasına göndermek isteseydik:
         View::composer(
-            ['layouts.footer', 'app'],
+            ['layouts.footer', 'app', 'layouts.header'],
             function ($view) {
             $view->with(
                 [

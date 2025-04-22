@@ -56,7 +56,7 @@ class ProductController extends Controller
             //image resize
             $manager = new ImageManager(new Driver());
             $image = $manager->read($file);
-            $image->resize(600, 600)->save(public_path('dist/img/products/' . $fileName));
+            $image->resize(445, 445)->save(public_path('dist/img/products/' . $fileName));
 
             // $path = public_path().'/dist/img/products';
             // $file->move($path,$fileName);
@@ -72,7 +72,7 @@ class ProductController extends Controller
         $product->save();
         
 
-        return redirect()->route('admin')->with('success', 'Ürün başarıyla eklendi');
+        return redirect()->route('admin.products')->with('success', 'Ürün başarıyla eklendi');
     }
 
     /**
@@ -119,7 +119,7 @@ class ProductController extends Controller
             $fileName = $file->getClientOriginalName();
             $manager = new ImageManager(new Driver());
             $image = $manager->read($file);
-            $image->resize(600, 600)->save(public_path('dist/img/products/' . $fileName));
+            $image->resize(445, 445)->save(public_path('dist/img/products/' . $fileName));
         }else {
             // Yeni fotoğraf yoksa, eskisini kullan
             $fileName = $request->oldImage;
@@ -133,7 +133,7 @@ class ProductController extends Controller
         $page->productImage = $fileName;
         
         $page->save();
-        return redirect()->route('admin')->with('success', 'Ürün başarıyla güncellendi');
+        return redirect()->route('admin.products')->with('success', 'Ürün başarıyla güncellendi');
     }
 
     /**
@@ -143,6 +143,6 @@ class ProductController extends Controller
     {
         $product = Page::find($id);
         $product->delete();
-        return redirect()->route('admin')->with('success', 'Ürün başarıyla silindi');
+        return redirect()->route('admin.products')->with('success', 'Ürün başarıyla silindi');
     }
 }

@@ -82,12 +82,9 @@
 						<div class="single-product-form">
 							<p><strong>KATEGORİ: </strong>{{$product->category->categoryName}}</p>
 						</div>
-						<h4>Paylaş:</h4>
+						<h4>Sosyal Medya:</h4>
 						<ul class="product-share">
-							<li><a href=""><i class="fab fa-facebook-f"></i></a></li>
-							<li><a href=""><i class="fab fa-twitter"></i></a></li>
-							<li><a href=""><i class="fab fa-google-plus-g"></i></a></li>
-							<li><a href=""><i class="fab fa-linkedin"></i></a></li>
+							<li><a href="https://www.facebook.com/aslanziraialetler/"><i class="fab fa-facebook-f"></i> Facebook</a></li>
 						</ul>
 					</div>
 				</div>
@@ -115,7 +112,7 @@
                                         <a href="{{route('urundetay',$item->id)}}"><img src="dist/img/products/{{$item->productImage}}" alt="Ürün Resmi"></a>
                                     </div>
                                     <h3>{{$item->productName}}</h3>
-                                    <p class="product-description text-left pl-4"> {{Str::limit($item->productDescription, 50, '...')}} </p>
+                                    <p class="product-description text-left pl-4"> {{Str::limit($item->productDescription, 150, '...')}} </p>
                                     <a href="{{route('urundetay',$item->id)}}" class="cart-btn"><i class="fas fa-info"></i> Detayları gör</a>
                                 </div>
                             </div>

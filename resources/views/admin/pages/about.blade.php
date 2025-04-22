@@ -62,6 +62,9 @@
           <div class="mt-auto">
             <a href="{{route('admin.about.add')}}" class="btn btn-primary btn-block text-uppercase mb-3">Hakkımda Ekle</a>
           </div>
+          <div class="text-center mt-auto">
+            <a href="{{ route('admin') }}" class="btn btn-light">Geri Dön</a>
+        </div>
         </div>
       </div>
 

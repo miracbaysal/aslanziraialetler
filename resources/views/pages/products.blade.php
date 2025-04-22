@@ -34,6 +34,27 @@
 	<!-- responsive -->
 	<link rel="stylesheet" href="assets/css/responsive.css">
 
+<style>
+	@media (max-width: 576px) {
+  .product-card {
+    position: static !important;
+    width: 100% !important;
+  }
+
+  .product-photo {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    display: block !important;
+  }
+
+  .product-image {
+    height: 160px !important;
+  }
+}
+
+
+</style>
 </head>
 
 
@@ -61,19 +82,10 @@
 
 				<div class="row">
 					<div class="col-md-12">
-						{{-- <div class="product-filters">
-							<ul>
-								<li class="active" data-filter="*">Tüm ürünler</li>
-								@foreach ($categories as $category)
-									<li data-filter=".{{$category->selflink}}">{{$category->categoryName}}</li>
-								@endforeach
-								
-							</ul>
-						</div> --}}
 						<div class="product-filters">
 							<ul>
 								<li class="{{ request()->routeIs('products') ? 'active' : '' }}">
-									<a href="{{ route('products') }}">Tüm ürünler</a>
+									<a href="{{ route('products') }}">Tüm Ürünler</a>
 								</li>
 								@foreach ($categories as $cat)
 									<li class="{{ isset($category) && $category->id == $cat->id ? 'active' : '' }}">
@@ -82,20 +94,28 @@
 								@endforeach
 							</ul>
 						</div>
-						
-						
 					</div>
 				</div>
 				<div class="row product-lists">
 					@foreach ($product as $item)
-					<div class="col-6 col-md-6 col-lg-4 text-center product-card {{ $item->category->selflink }}">
+						{{-- <div class="col-6 col-md-6 col-lg-4 text-center product-card {{ $item->category->selflink }}">
 							<div class="single-product-item">
 								<div class="product-image">
-									<a href="{{route('urundetay',$item->id)}}"><img src="dist/img/products/{{$item->productImage}}" alt="Ürün fotoğrafı"></a>
+									<a href="{{route('urundetay',$item->id)}}"><img class="product-photo" src="dist/img/products/{{$item->productImage}}" alt="Ürün fotoğrafı"></a>
 								</div>
 								<h3>{{Str::limit($item->productName, 20, '...')}}</h3>
 								<p class="product-description text-left pl-4"> {{Str::limit($item->productDescription, 50, '...')}} </p>
 								<a href="{{route('urundetay',$item->id)}}" class="cart-btn"><i class="fas fa-info"></i> Ürün Detayları</a>
+							</div>
+						</div> --}}
+						<div class="col-lg-4 col-md-6 text-center d-flex {{ $item->category->selflink }}">
+							<div class="single-product-item w-100 d-flex flex-column">
+								<div class="product-image">
+									<a href="{{route('urundetay',$item->id)}}"><img src="dist/img/products/{{$item->productImage}}" alt="Ürün Resmi"></a>
+								</div>
+								<h3>{{$item->productName}}</h3>
+								<p class="product-description text-left pl-4"> {{Str::limit($item->productDescription, 150, '...')}} </p>
+								<a href="{{route('urundetay',$item->id)}}" class="cart-btn"><i class="fas fa-info"></i> Detayları gör</a>
 							</div>
 						</div>
 					@endforeach
@@ -160,6 +180,8 @@
 	
 		// Ekran boyutu değiştiğinde tekrar uygula
 		window.addEventListener("resize", limitProductCards);
+		
+		
 	</script>
 </body>
 </html>

@@ -4,6 +4,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AdminPageController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommConntroller;
+use App\Http\Controllers\ContactFormController;
 use App\Http\Controllers\Frontend\FrontPageController;
 use App\Http\Controllers\Frontend\SelflinkCategory;
 use App\Http\Controllers\Frontend\SingleProductController;
@@ -27,6 +28,11 @@ Route::get('/hakkimizda', [AboutController::class, 'show'])->name('about');
 Route::get('/iletisim', [CommConntroller::class, 'show'])->name('contact');
 
 
+
+Route::get('/admin/mesajlar', [ContactFormController::class, 'index'])->name('admin.mesajlar');
+Route::get('/admin/mesajlar-goruntule{id}', [ContactFormController::class, 'show'])->name('admin.mesajlar.show');
+Route::post('/admin/mesajlar/store', [ContactFormController::class, 'store'])->name('admin.mesajlar.store');
+Route::delete('/admin/mesajsil{id}', [ContactFormController::class, 'destroy'])->name('admin.mesajlar.destroy');
 
 
 // ADMİN ROUTES

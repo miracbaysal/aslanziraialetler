@@ -64,7 +64,7 @@ class AboutController extends Controller
         $about->description4 = $request->description4;
         
         $about->save();
-        return redirect()->route('admin')->with('success', 'Hakkımda başarıyla güncellendi');
+        return redirect()->route('admin.about')->with('success', 'Hakkımda başarıyla güncellendi');
     }
 
     /**
@@ -126,7 +126,7 @@ class AboutController extends Controller
         $about->description4 = $request->description4;
         
         $about->save();
-        return redirect()->route('admin')->with('success', 'Hakkımda başarıyla güncellendi');
+        return redirect()->route('admin.about')->with('success', 'Hakkımda başarıyla güncellendi');
     }
 
     /**
@@ -136,6 +136,6 @@ class AboutController extends Controller
     {
         $about = About::find($id);
         $about->delete();
-        return redirect()->route('admin')->with('success', 'Hakkımda başarıyla silindi.');
+        return redirect()->route('admin.about')->with('success', 'Hakkımda başarıyla silindi.');
     }
 }

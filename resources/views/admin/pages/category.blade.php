@@ -33,6 +33,9 @@
                 </div>
                 <!-- table container -->
                     <a href="{{route('category.add')}}" class="btn btn-primary btn-block text-uppercase mb-3">Yeni Kategori Ekle</a>
+                    <div class="text-center mt-auto">
+                        <a href="{{ route('admin') }}" class="btn btn-light">Geri Dön</a>
+                    </div>
             </div>
         </div>
     </div>

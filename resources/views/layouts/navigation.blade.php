@@ -12,8 +12,13 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('admin')" :active="request()->routeIs('admin')">
+                        {{ __('Admin Panel') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('anasayfa')" :active="request()->routeIs('anasayfa')">
-                        {{ __('Dashboard') }}
+                        {{ __('Anasayfa') }}
                     </x-nav-link>
                 </div>
             </div>

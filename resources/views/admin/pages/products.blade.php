@@ -54,6 +54,9 @@
             <div class="mt-auto">
               <a href="{{route('product.add')}}" class="btn btn-primary btn-block text-uppercase mb-3">Yeni Ürün Ekle</a>
             </div>
+            <div class="text-center mt-auto">
+              <a href="{{ route('admin') }}" class="btn btn-light">Geri Dön</a>
+          </div>
             
           </div>
         </div>

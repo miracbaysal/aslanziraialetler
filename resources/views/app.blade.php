@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Responsive Bootstrap4 Shop Template, Created by Imran Hossain from https://imransdesign.com/">
 
         <title>Aslan Zirai Aletler</title>
 
@@ -32,9 +34,11 @@
 	<link rel="stylesheet" href="assets/css/main.css">
 	<!-- responsive -->
 	<link rel="stylesheet" href="assets/css/responsive.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
         
 </head>
-<body class="bg-[#FDFDFC] dark:bg-[#0a0a0a] text-[#1b1b18] flex p-6 lg:p-8 items-center lg:justify-center min-h-screen flex-col">
+<body>
 
     @include('layouts.header')
 
@@ -158,14 +162,24 @@
 			</div>
 			<div class="row product-lists">
 				@foreach ($product as $item)
-					<div class="col-6 col-md-6 col-lg-4 mb-4 text-center mb-4 {{ $item->category->selflink }}">
-						<div class="single-product-item h-100 d-flex flex-column justify-content-between">
+					{{-- <div class="col-6 col-md-6 col-lg-4 mb-4 text-center mb-4 {{ $item->category->selflink }}">
+						<div class="single-product-item">
 							<div class="product-image">
 								<a href="{{route('urundetay',$item->id)}}"><img src="dist/img/products/{{$item->productImage}}" alt="Ürün fotoğrafı"></a>
 							</div>
 							<h3>{{$item->productName}}</h3>
 							<p class="product-description"> {{ Str::limit($item->productDescription, 50, '...') }} </p>
 							<a href="{{route('urundetay',$item->id)}}" class="cart-btn"><i class="fas fa-info"></i> Ürün Detayları</a>
+						</div>
+					</div> --}}
+					<div class="col-lg-4 col-md-6 text-center {{ $item->category->selflink }}">
+						<div class="single-product-item">
+							<div class="product-image">
+								<a href="{{route('urundetay',$item->id)}}"><img src="dist/img/products/{{$item->productImage}}" alt="Ürün Resmi"></a>
+							</div>
+							<h3>{{$item->productName}}</h3>
+							<p class="product-description text-left pl-4"> {{Str::limit($item->productDescription, 150, '...')}} </p>
+							<a href="{{route('urundetay',$item->id)}}" class="cart-btn"><i class="fas fa-info"></i> Detayları gör</a>
 						</div>
 					</div>
 				@endforeach
@@ -184,9 +198,26 @@
 			<div class="row">
 				<div class="col-lg-6 col-md-12">
 					<div class="abt-bg">
-						<a href="https://www.youtube.com/watch?v=DBLlFWYcIGQ" class="video-play-btn popup-youtube"><i class="fas fa-play"></i></a>
+						<a href="javascript:void(0)" class="video-play-btn" data-bs-toggle="modal" data-bs-target="#videoModal">
+							<i class="fas fa-play"></i>
+						</a>
 					</div>
 				</div>
+				<div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
+					<div class="modal-dialog modal-dialog-centered modal-lg">
+					  <div class="modal-content bg-transparent border-0">
+						<div class="modal-body p-0">
+						  <div class="ratio ratio-16x9">
+							<video id="myVideo" controls>
+								<source src="{{ asset('assets/videos/aslanzirai.mp4') }}" type="video/mp4">
+								Tarayıcınız video etiketini desteklemiyor.
+							  </video>
+							  
+						  </div>
+						</div>
+					  </div>
+					</div>
+				  </div>
 				<div class="col-lg-6 col-md-12">
 					<div class="abt-text">
 						<p class="top-sub">1990'dan beri</p>
@@ -237,11 +268,20 @@
 	<script src="assets/js/sticker.js"></script>
 	<!-- main js -->
 	<script src="assets/js/main.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 
 
         @if (Route::has('login'))
             <div class="h-14.5 hidden lg:block"></div>
         @endif
+		<script>
+			document.getElementById('videoModal').addEventListener('hidden.bs.modal', function () {
+				const video = document.getElementById('myVideo');
+				video.pause();
+				video.currentTime = 0;
+				});
+		</script>
     </body>
 	
 </html>

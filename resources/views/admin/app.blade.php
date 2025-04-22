@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="../dist/css/fontawesome.min.css">
     <!-- https://fontawesome.com/ -->
     <link rel="stylesheet" href="../dist/css/bootstrap.min.css">
+    <!-- favicon -->
+    <link rel="shortcut icon" type="image/png" href="../assets/img/favicon.ico">
     <!-- https://getbootstrap.com/ -->
     <link rel="stylesheet" href="../dist/css/templatemo-style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -59,6 +61,12 @@
                             İletişim
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('admin.mesajlar')}}">
+                            <i class="fa-regular fa-message"></i>
+                            Mesajlar
+                        </a>
+                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
@@ -68,9 +76,15 @@
                             </span>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Profile</a>
-                            <a class="dropdown-item" href="#">Billing</a>
-                            <a class="dropdown-item" href="#">Çıkış</a>
+                            <a class="dropdown-item" href="{{route('profile.edit')}}">Profile</a>
+
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <button type="submit" class="dropdown-item text-center" style="background: none; border: none; padding: 0; cursor: pointer;">
+                                    {{ __('Çıkış Yap') }}
+                                </button>
+                            </form>
+
                         </div>
                     </li>
                 </ul>

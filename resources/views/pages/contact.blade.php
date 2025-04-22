@@ -10,7 +10,7 @@
 	<title>İletişim</title>
 
 	<!-- favicon -->
-	<link rel="shortcut icon" type="image/png" href="assets/img/logo.png">
+	<link rel="shortcut icon" type="image/png" href="assets/img/favicon.ico">
 	<!-- google font -->
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
@@ -35,7 +35,7 @@
 <body>
 	
 	@include('layouts.header')
-	@foreach ($comm as $item)
+
 	
 	<!-- breadcrumb-section -->
 	<div class="breadcrumb-section breadcrumb-bg">
@@ -60,10 +60,21 @@
 					<div class="form-title">
 						<h2>Sorunuz mu var?</h2>
 						<p>Sorunuz hakkında bize bir mesaj bırakmak için lütfen aşağıdaki alanı doldurun. En kısa zamanda size geri dönüş yapalım.</p>
+						<p><h6><span class="red-text">Hatırlatma:</span></h6> Size sorunsuz şekilde ulaşabilmemiz için lütfen Telefon numaranızı doğru girdiğinizden emin olun.</p>
 					</div>
 				 	<div id="form_status"></div>
+					{{-- HATA MESAJLARI --}}
+					@if ($errors->any())
+					<div class="alert alert-danger">
+						<ul>
+							@foreach ($errors->all() as $error)
+								<li>{{ $error }}</li>
+							@endforeach
+						</ul>
+					</div>
+				@endif
 					<div class="contact-form">
-						<form type="POST" id="contact-form" onSubmit="return valid_datas( this );">
+						<form action="{{route('admin.mesajlar.store')}}" method="POST" enctype="multipart/form-data">
                             @csrf
 							<p>
 								<input type="text" placeholder="İsim" name="name" id="name">
@@ -73,9 +84,13 @@
 								<input type="tel" placeholder="Telefon" name="phone" id="phone">
 								<input type="text" placeholder="Konu" name="subject" id="subject">
 							</p>
-							<p><textarea name="message" id="Mesaj" cols="30" rows="10" placeholder="Message"></textarea></p>
+							<p>
+								<textarea name="message" id="Mesaj" cols="30" rows="10" placeholder="Mesajınız"></textarea>
+							</p>
 							<input type="hidden" name="token" value="FsWga4&@f6aw" />
-							<p><input type="submit" value="Gönder"></p>
+							<p>
+								<input type="submit" value="Gönder">
+							</p>
 						</form>
 					</div>
 				</div>
@@ -83,15 +98,18 @@
 					<div class="contact-form-wrap">
 						<div class="contact-form-box">
 							<h4><i class="fas fa-map"></i> Adres</h4>
-							<p>{{$item->address}}</p>
+							<p>{{$comm->address}}</p>
 						</div>
 						<div class="contact-form-box">
 							<h4><i class="far fa-clock"></i> Çalışma saatleri</h4>
-							<p>{{$item->workingHours}} </p>
+							<p>{{$comm->workingHours}} </p>
 						</div>
 						<div class="contact-form-box">
 							<h4><i class="fas fa-address-book"></i> İletişim</h4>
-							<p>Telefon: {{$item->phone}}<br>E-mail: {{$item->email}}</p>
+							<p>
+								Telefon: <a href="tel:{{$comm->phone}}">{{$comm->phone}}</a><br>
+								E-mail: <a href="mailto:{{$comm->email}}">{{$comm->email}}</a>
+							</p>
 						</div>
 					</div>
 				</div>
@@ -114,11 +132,19 @@
 
 	<!-- google map section -->
 	<div class="embed-responsive embed-responsive-21by9">
-		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5451.138198361229!2d36.74043826245712!3d41.25388335928511!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x408806048db6f09b%3A0xb303a72f38b5db44!2zw4dhcsWfYW1iYSwgU2Ftc3Vu!5e0!3m2!1str!2str!4v1744830951935!5m2!1str!2str" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+		<iframe 
+			src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d2999.457046081741!2d36.737877568669674!3d41.25538352811856!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDHCsDE1JzE5LjQiTiAzNsKwNDQnMjIuMiJF!5e0!3m2!1str!2str!4v1744833122402!5m2!1str!2str" 
+			width="600" 
+			height="450" 
+			style="border:0;" 
+			allowfullscreen="" 
+			loading="lazy" 
+			referrerpolicy="no-referrer-when-downgrade">
+		</iframe>
 	</div>
 	<!-- end google map section -->
 
-	@endforeach
+
 	@include('layouts.footer')
 	
 	<!-- jquery -->
